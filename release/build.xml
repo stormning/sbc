@@ -156,9 +156,9 @@
       <arg line="${release.build.goals} -Pmobicents"/>
     </exec>
     -->
-    <!--<exec dir="${workspace.sbc.dir}/application" executable="${mvn.executable}" failonerror="true">
+    <exec dir="${workspace.sbc.dir}/application" executable="${mvn.executable}" failonerror="true">
       <arg line="javadoc:javadoc"/>
-    </exec>-->
+    </exec>
   </target>
 
   <target name="copy-sbc">
@@ -189,7 +189,7 @@
   	<delete includeemptydirs="true">
   	  	    <fileset dir="${build.work.dir}/docs/" includes="**/*"/>
   	</delete>
-  	
+
     <copy failonerror="true" file="${configuration.directory}/mobicents-dar.properties" tofile="${build.work.dir}/conf/dars/mobicents-dar.properties"/>
     
     
