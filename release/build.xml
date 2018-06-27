@@ -156,9 +156,9 @@
       <arg line="${release.build.goals} -Pmobicents"/>
     </exec>
     -->
-    <exec dir="${workspace.sbc.dir}/application" executable="${mvn.executable}" failonerror="true">
+    <!--<exec dir="${workspace.sbc.dir}/application" executable="${mvn.executable}" failonerror="true">
       <arg line="javadoc:javadoc"/>
-    </exec>
+    </exec>-->
   </target>
 
   <target name="copy-sbc">
@@ -186,19 +186,19 @@
   	<copy failonerror="true" file="${configuration.directory}/sbc.script" overwrite="true" tofile="${build.work.dir}/webapps/restcomm-sbc/WEB-INF/data/hsql/sbc.script"/>
     <delete failonerror="false" file="${build.work.dir}/conf/dars/mobicents-dar.properties"/>
   	
-  	<delete includeemptydirs="true">
+  	<!--<delete includeemptydirs="true">
   	  	    <fileset dir="${build.work.dir}/docs/" includes="**/*"/>
-  	</delete>
+  	</delete>-->
 
     <copy failonerror="true" file="${configuration.directory}/mobicents-dar.properties" tofile="${build.work.dir}/conf/dars/mobicents-dar.properties"/>
     
     
 
-  	 <copy failonerror="true" todir="${build.work.dir}/docs">
+  	 <!--<copy failonerror="true" todir="${build.work.dir}/docs">
   	      <fileset dir="${workspace.sbc.dir}/docs/target/generated-docs">
   	        <include name="**/*"/>
   	      </fileset>
-  	</copy>
+  	</copy>-->
     
     <touch file="${build.work.dir}/bin/setenv.sh"/>
 
@@ -239,7 +239,7 @@
   </target>
 
   <target name="copy-docs">
-    <!--docs-->
+    <!--&lt;!&ndash;docs&ndash;&gt;
     <mkdir dir="${sbc.docs.dir}"/>
     <copy failonerror="true" file="${workspace.sbc.dir}/README.md" todir="${sbc.docs.dir}">
     
@@ -250,7 +250,7 @@
         <include name="**/*"/>
       </fileset>
     </copy>
-    <!--docs tomcat-->
+    &lt;!&ndash;docs tomcat&ndash;&gt;
     <mkdir dir="${sbc.docs.tomcat.dir}"/>
     <copy failonerror="true" file="${workspace.sbc.dir}/README.md" todir="${sbc.docs.tomcat.dir}">
      
@@ -261,7 +261,7 @@
         <include name="**/*"/>
       </fileset>
     </copy>
-    <!--docs JBoss AS10-->
+    &lt;!&ndash;docs JBoss AS10&ndash;&gt;
     
     <mkdir dir="${sbc.docs.as10.dir}"/>
     <copy failonerror="true" file="${workspace.sbc.dir}/README.md" todir="${sbc.docs.as10.dir}">
@@ -272,7 +272,7 @@
       <fileset dir="${workspace.sbc.dir}/application/target/site/apidocs">
         <include name="**/*"/>
       </fileset>
-    </copy>
+    </copy>-->
   </target>
 
   <target depends="set-time-stamp" name="make-final-zip">
