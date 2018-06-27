@@ -156,9 +156,9 @@
       <arg line="${release.build.goals} -Pmobicents"/>
     </exec>
     -->
-    <exec dir="${workspace.sbc.dir}/application" executable="${mvn.executable}" failonerror="true">
+    <!--<exec dir="${workspace.sbc.dir}/application" executable="${mvn.executable}" failonerror="true">
       <arg line="javadoc:javadoc"/>
-    </exec>
+    </exec>-->
   </target>
 
   <target name="copy-sbc">
