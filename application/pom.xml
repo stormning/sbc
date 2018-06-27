@@ -16,7 +16,6 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<additionalparam>-Xdoclint:none</additionalparam>
 	</properties>
 	<!-- For 3.5 and older -->
 
