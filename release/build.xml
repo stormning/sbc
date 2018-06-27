@@ -157,8 +157,7 @@
     </exec>
     -->
     <exec dir="${workspace.sbc.dir}/application" executable="${mvn.executable}" failonerror="true">
-      <arg line="javadoc:javadoc"/>
-      <arg value="-Xdoclint:none" />
+      <arg line="javadoc:javadoc -P-Xdoclint:none"/>
     </exec>
   </target>
 
