@@ -6,16 +6,17 @@
 		<artifactId>restcomm-sbc</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
-	
+
 	<artifactId>sbc-application</artifactId>
 	<name>RestComm SBC :: Apps :: ${project.artifactId}</name>
-	
+
 	<packaging>war</packaging>
-	
+
 	<url>http://maven.apache.org</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<additionalparam>-Xdoclint:none</additionalparam>
 	</properties>
 	<!-- For 3.5 and older -->
 
@@ -30,7 +31,7 @@
 		<dependency>
 			<groupId>com.typesafe</groupId>
 			<artifactId>config</artifactId>
-			
+
 		</dependency>
 
 		 <dependency>
@@ -38,7 +39,7 @@
                 <artifactId>wildfly-client-all</artifactId>
                  <version>10.0.0.Final</version>
          </dependency>
-         
+
          <!-- https://mvnrepository.com/artifact/org.jboss.threads/jboss-threads -->
 		<dependency>
 		    <groupId>org.jboss.threads</groupId>
@@ -76,8 +77,8 @@
 		    <artifactId>wildfly-threads</artifactId>
 		    <version>8.2.1.Final</version>
 		</dependency>
-		
-		
+
+
 		<dependency>
 			<groupId>javax.mail</groupId>
 			<artifactId>mail</artifactId>
@@ -90,52 +91,52 @@
 		    <version>12.0.0.Final</version>
 		</dependency>
 
-		
-	<!-- 	
+
+	<!--
 		<dependency>
 		    <groupId>org.jboss.remoting3</groupId>
 		    <artifactId>jboss-remoting</artifactId>
 		    <version>3.3.9.Final</version>
 		</dependency>
 
-		
+
 		<dependency>
 		    <groupId>org.jboss.xnio</groupId>
 		    <artifactId>xnio-nio</artifactId>
 		    <version>3.0.7.GA</version>
 		</dependency>
-		
+
 		<dependency>
 		    <groupId>org.jboss.marshalling</groupId>
 		    <artifactId>jboss-marshalling</artifactId>
 		    <version>2.0.0.Beta8</version>
 		</dependency>
-		
-		
+
+
 		<dependency>
 		    <groupId>org.jboss.marshalling</groupId>
 		    <artifactId>jboss-marshalling-river</artifactId>
 		    <version>2.0.0.Beta8</version>
 		</dependency>
-		
-	-->	
-		
+
+	-->
+
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 			<scope>provided</scope>
 		</dependency>
-		
+
 		<dependency>
 			    <groupId>org.mobicents.servlet.sip</groupId>
 			    <artifactId>restcomm.api</artifactId>
-			 
+
 		</dependency>
 		<dependency>
 			    <groupId>org.mobicents.servlet.sip</groupId>
-			    <artifactId>restcomm.commons</artifactId>		 
+			    <artifactId>restcomm.commons</artifactId>
 		</dependency>
-		
+
 		<dependency>
 				<groupId>com.googlecode.libphonenumber</groupId>
 				<artifactId>libphonenumber</artifactId>
@@ -153,13 +154,13 @@
 			<artifactId>hsqldb</artifactId>
 			<version>1.8.0.10</version>
 		</dependency>
-		
+
 		<dependency>
   			<groupId>org.infinispan</groupId>
   			<artifactId>infinispan-core</artifactId>
-  		
+
 		</dependency>
-		
+
 		<dependency>
 				<groupId>org.apache.shiro</groupId>
 				<artifactId>shiro-core</artifactId>
@@ -168,12 +169,12 @@
 		<dependency>
 				<groupId>org.apache.shiro</groupId>
 				<artifactId>shiro-web</artifactId>
-				
+
 		</dependency>
 		<dependency>
 				<groupId>joda-time</groupId>
 				<artifactId>joda-time</artifactId>
-				
+
 		</dependency>
 		<dependency>
 	<!-- https://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client -->
@@ -186,40 +187,40 @@
 		<dependency>
 				<groupId>org.mybatis</groupId>
 				<artifactId>mybatis</artifactId>
-				
+
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
 		<dependency>
 		    <groupId>commons-codec</groupId>
 		    <artifactId>commons-codec</artifactId>
-		  
+
 		</dependency>
-		
+
 		<dependency>
 		  <groupId>org.apache.commons</groupId>
 		  <artifactId>commons-exec</artifactId>
 		</dependency>
-		
+
 		<dependency>
 				<groupId>org.slf4j</groupId>
 				<artifactId>slf4j-api</artifactId>
-			
+
 		</dependency>
 
 		<dependency>
 				<groupId>org.slf4j</groupId>
 				<artifactId>slf4j-log4j12</artifactId>
-			
+
 		</dependency>
 		<dependency>
 			<groupId>asm</groupId>
-			<artifactId>asm</artifactId> 
-		   	
+			<artifactId>asm</artifactId>
+
 		</dependency>
 		<dependency>
 			<groupId>org.json</groupId>
 			<artifactId>json</artifactId>
-			
+
 		</dependency>
 		<!--<dependency>
 			<groupId>com.sun.jersey</groupId>
@@ -230,7 +231,7 @@
 			<groupId>com.sun.jersey</groupId>
 			<artifactId>jersey-client</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>com.sun.jersey</groupId>
 			<artifactId>jersey-servlet</artifactId>
@@ -263,7 +264,7 @@
 				<groupId>com.thoughtworks.xstream</groupId>
 				<artifactId>xstream</artifactId>
 			</dependency>
-			
+
 				<!-- Message Passing -->
 			<dependency>
 				<groupId>org.scala-lang</groupId>
@@ -279,35 +280,35 @@
 				<groupId>com.typesafe.akka</groupId>
 				<artifactId>akka-slf4j_2.10</artifactId>
 			</dependency>
-			
+
 			<dependency>
 			    <groupId>org.bouncycastle</groupId>
 			    <artifactId>bcprov-debug-jdk15on</artifactId>
 			</dependency>
-			
+
 			<!--  RestComm media server stuff -->
-		
+
 			<dependency>
 			    <groupId>org.mobicents.media.io</groupId>
 			    <artifactId>rtp</artifactId>
-			 
+
 			</dependency>
-			
+
 			<dependency>
 			    <groupId>org.mobicents.media.io</groupId>
 			    <artifactId>network</artifactId>
 			</dependency>
-			
+
 			<dependency>
 			    <groupId>org.mobicents.media.io</groupId>
 			    <artifactId>ice</artifactId>
 			</dependency>
-			
+
 			<dependency>
 			    <groupId>org.mobicents.media.io</groupId>
 			    <artifactId>stun</artifactId>
 			</dependency>
-			
+
 			<dependency>
 			    <groupId>org.mobicents.media.io</groupId>
 			    <artifactId>sdp</artifactId>
@@ -343,12 +344,12 @@
 					<attachClasses>true</attachClasses>
 				</configuration>
 			</plugin>
-			
-			
+
+
 				</plugins>
 			</build>
-	
- 
+
+
 	<profiles>
 		<profile>
 			<id>deploy-jboss</id>
