@@ -49,8 +49,10 @@ public class UserAgentACLDPIProcessor extends DefaultDPIProcessor implements Pro
 
 	private String name="ACL UA Processor";
 	private static transient Logger LOG = Logger.getLogger(UserAgentACLDPIProcessor.class);
-	
-	private static String[] a= {	
+
+	private boolean nocheck = true;
+
+	private static String[] a= {
 			"sipcli",
 			"sipvicious",
 			"sip-scan",
@@ -71,11 +73,11 @@ public class UserAgentACLDPIProcessor extends DefaultDPIProcessor implements Pro
 	};
 
 	private static ArrayList<String> attackers=new ArrayList<String>(Arrays.asList(a));
-	
+
 	public UserAgentACLDPIProcessor(ProcessorChain processorChain) {
 			super(processorChain);
 	}
-	
+
 	public UserAgentACLDPIProcessor(String name, ProcessorChain processorChain) {
 			super(name, processorChain);
 	}
@@ -93,11 +95,15 @@ public class UserAgentACLDPIProcessor extends DefaultDPIProcessor implements Pro
 	          LOG.trace(">> doProcess()");
 	    }
 		SipServletMessage m=(SipServletMessage) message.getContent();
-		
+
+		if (nocheck){
+		    return m;
+        }
+
 		/*
 		 * Check just initial requests
 		 */
-		
+
 		if(m instanceof SipServletRequest) {
 			if(!((SipServletRequest) m).isInitial()) {
 				return m;
@@ -106,11 +112,11 @@ public class UserAgentACLDPIProcessor extends DefaultDPIProcessor implements Pro
 		else {
 			return m;
 		}
-		
+
 		String userAgent=m.getHeader("User-Agent");
-		
+
 		userAgent=(userAgent==null||"".equals(userAgent.trim()))?"Anonymous":userAgent;
-		
+
 		if (userAgent.equals("Anonymous")||isAttacker(userAgent)) {
 			if(LOG.isInfoEnabled()){
 		          LOG.info("THREAT: Forbidden access to threat-candidate UA "+userAgent);
@@ -119,19 +125,19 @@ public class UserAgentACLDPIProcessor extends DefaultDPIProcessor implements Pro
 			threatManager.create(Threat.Type.BAD_UA,
 					m.getFrom().getDisplayName(),
 					m.getRemoteAddr(),
-					0, 
+					0,
 					userAgent,
 					m.getTransport());
-			
+
 			if(m instanceof SipServletRequest) {
 				SipServletRequest request=(SipServletRequest) m;
 				SipServletResponse response = request.createResponse(405, "Method not allowed");
-				message.setContent(response);	
+				message.setContent(response);
 				message.unlink();
-				
-				
+
+
 			}
-			
+
 		}
 		return m;
 	}
@@ -139,7 +145,7 @@ public class UserAgentACLDPIProcessor extends DefaultDPIProcessor implements Pro
 	@Override
 	public void setName(String name) {
 		this.name=name;
-		
+
 	}
 
 	@Override
@@ -151,18 +157,18 @@ public class UserAgentACLDPIProcessor extends DefaultDPIProcessor implements Pro
 	public void doProcess(Message message) throws ProcessorParsingException {
 		doProcess((SIPMutableMessage)message);
 	}
-	
+
 	@Override
 	public String getVersion() {
 		return "1.0.0";
 	}
-	
+
 	private boolean isAttacker(String ua) {
-		
+
 		for(String attackerUA:attackers) {
 			if(ua.contains(attackerUA)){
 				return true;
-			}	
+			}
 		}
 		return false;
 	}
